@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Session View</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+			<table class="table table-bordered table-hover" border="1">
+                <caption>Session:</caption>
+                    <thead>
+                        <tr class="active">
+                            <td>Tutor Name</td>
+                            <td>Start Time</td>
+                            <td>End Time</td>
+                            <th>Operation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in res_session %}
+                        <tr>
+                            <td>{{ row.tutor_username }}</td>
+                            <td>{{ row.start_time|date:"m-d H:i:s" }} </td>
+                            <td>{{ row.end_time|date:"m-d H:i:s" }}</td>
+                            <td><a href="http://127.0.0.1:8000/tutorials/stu_cancel_confirm/{{ row.id }}/"><button id="to_stu_tutor_info" class="btn btn-danger"  type="button"> Cancel </button></a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+			</table>
+	</div>
+</body>
+</html>
